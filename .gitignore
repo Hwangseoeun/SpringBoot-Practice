@@ -37,4 +37,4 @@ out/
 .vscode/
 
 # docker data
-/docker/data/mysql/mysql
+/docker/data/mysql/practice

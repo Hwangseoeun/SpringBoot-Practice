@@ -5,7 +5,7 @@ services:
     ports:
       - "33308:3306"
     volumes:
-      - ./data/mysql/mysql:/var/lib/mysql
+      - ./data/mysql/practice:/var/lib/mysql
       - ./data/mysql/config/my.cnf:/etc/mysql/conf.d/my.cnf
     environment:
       TZ: Asia/Seoul
