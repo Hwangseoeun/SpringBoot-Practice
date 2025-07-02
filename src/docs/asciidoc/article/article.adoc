@@ -1,0 +1,9 @@
+[[create-article]]
+=== 게시글 작성 API
+
+==== HTTP Request
+include::{snippets}/article-controller-docs-test/create-article/http-request.adoc[]
+
+==== HTTP Response
+include::{snippets}/article-controller-docs-test/create-article/http-response.adoc[]
+include::{snippets}/article-controller-docs-test/create-article/response-fields.adoc[]
