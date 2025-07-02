@@ -21,7 +21,7 @@ import java.time.LocalDateTime;
 import static site.practice.dto.ArticleSuccessCode.*;
 
 @RequiredArgsConstructor
-@RequestMapping("api/article")
+@RequestMapping("/api/article")
 @RestController
 public class ArticleController implements ArticleControllerDocs {
 

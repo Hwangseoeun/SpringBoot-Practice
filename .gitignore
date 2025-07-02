@@ -36,5 +36,8 @@ out/
 ### VS Code ###
 .vscode/
 
-# docker data
+### docker data ###
 /docker/data/mysql/practice
+
+### Rest Docs index.html ###
+src/main/resources/static/docs/index.html
