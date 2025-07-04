@@ -37,7 +37,11 @@ out/
 .vscode/
 
 ### docker data ###
-/docker/data/mysql/practice
+/docker/data/mysql/practice_local
+/docker/data/mysql/practice_dev
 
 ### Rest Docs index.html ###
 src/main/resources/static/docs/index.html
+
+### env file ###
+dev.env
