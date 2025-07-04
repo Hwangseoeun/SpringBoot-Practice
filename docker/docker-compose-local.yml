@@ -1,11 +1,11 @@
 services:
   mysql:
     image: mysql:8.0
-    container_name: spring-boot-practice-mysql
+    container_name: practice-local-mysql
     ports:
       - "33308:3306"
     volumes:
-      - ./data/mysql/practice:/var/lib/mysql
+      - ./data/mysql/practice_local:/var/lib/mysql
       - ./data/mysql/config/my.cnf:/etc/mysql/conf.d/my.cnf
     environment:
       TZ: Asia/Seoul

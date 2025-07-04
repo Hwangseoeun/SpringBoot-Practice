@@ -1,0 +1,29 @@
+services:
+  practice-dev-server:
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
+    container_name: practice-dev-server
+    ports:
+      - ${CONTAINER_SERVER_PORT_DEV}:8080
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+    depends_on:
+      practice-dev-mysql:
+        condition: service_healthy
+
+  practice-dev-mysql:
+    image: mysql:8.0
+    container_name: practice-dev-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD_DEV}
+      MYSQL_DATABASE: ${DB_NAME_DEV}
+    volumes:
+      - ./data/mysql/practice_dev:/var/lib/mysql
+      - ./data/mysql/config/my.cnf:/etc/mysql/conf.d/my.cnf
+    ports:
+      - ${CONTAINER_DB_PORT_DEV}:3306
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping"]
+      interval: 5s
+      retries: 10
