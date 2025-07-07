@@ -1,10 +1,4 @@
 spring:
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://${DB_URL_DEV}:3306/${DB_NAME_DEV}
-    username: ${DB_USERNAME_DEV}
-    password: ${DB_PASSWORD_DEV}
-
   jpa:
     hibernate.ddl-auto: none
     show-sql: true
