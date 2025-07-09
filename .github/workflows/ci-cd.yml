@@ -101,7 +101,7 @@ jobs:
         id: start-new-server-application
         run: |
           cd ~/project
-          aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | sudo docker login --username AWS --password-stdin ${{ secrets.ECR_REGISTRY }}
+#          aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | sudo docker login --username AWS --password-stdin ${{ secrets.ECR_REGISTRY }}
           sudo docker-compose stop springboot-app
           sudo docker-compose rm -f springboot-app
           sudo docker images --filter=reference="*/springboot-app-dev:*" -q | xargs -r sudo docker rmi -f
