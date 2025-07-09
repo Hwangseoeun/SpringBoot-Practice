@@ -43,8 +43,5 @@ out/
 ### Rest Docs index.html ###
 src/main/resources/static/docs/index.html
 
-### env file ###
-dev.env
-
 ### backup file ###
 backup/
