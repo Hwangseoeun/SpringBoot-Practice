@@ -7,7 +7,9 @@ import org.springframework.restdocs.payload.JsonFieldType;
 import site.practice.controller.ArticleController;
 import site.practice.docs.RestDocsSupport;
 import site.practice.dto.CreateArticleRequestDto;
+import site.practice.service.ArticleService;
 
+import static org.mockito.Mockito.mock;
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.post;
 import static org.springframework.restdocs.payload.PayloadDocumentation.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -15,9 +17,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 public class ArticleControllerDocsTest extends RestDocsSupport {
 
+    private final ArticleService articleService = mock(ArticleService.class);
+
     @Override
     protected Object initController() {
-        return new ArticleController();
+        return new ArticleController(articleService);
     }
 
     @DisplayName("게시글 생성 API")
