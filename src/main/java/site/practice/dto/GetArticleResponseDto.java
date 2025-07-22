@@ -1,12 +1,6 @@
 package site.practice.dto;
 
-import java.time.LocalDateTime;
+import site.practice.entity.Article;
 
-public record GetArticleResponseDto(
-    String title,
-    String content,
-    String writerName,
-    LocalDateTime createdAt,
-    LocalDateTime updatedAt
-) {
+public record GetArticleResponseDto(Article article) {
 }
