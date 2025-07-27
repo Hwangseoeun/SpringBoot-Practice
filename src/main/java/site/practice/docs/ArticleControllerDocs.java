@@ -2,6 +2,7 @@ package site.practice.docs;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import site.practice.dto.CreateArticleRequestDto;
 import site.practice.dto.GetArticleResponseDto;
@@ -15,7 +16,7 @@ public interface ArticleControllerDocs {
     ResponseEntity<site.practice.common.response.ApiResponse<Void>> createArticle(CreateArticleRequestDto dto);
 
     @Operation(summary = "전체 게시글 조회 api")
-    ResponseEntity<site.practice.common.response.ApiResponse<GetArticlesResponseDto>> getArticles();
+    ResponseEntity<site.practice.common.response.ApiResponse<GetArticlesResponseDto>> getArticles(Pageable pageable);
 
     @Operation(summary = "게시글 조회 api")
     ResponseEntity<site.practice.common.response.ApiResponse<GetArticleResponseDto>> getAticle(Long articleId);

@@ -1,6 +1,9 @@
 package site.practice.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,8 +21,6 @@ import site.practice.dto.GetArticlesResponseDto;
 import site.practice.dto.UpdateArticleRequestDto;
 import site.practice.entity.Article;
 import site.practice.service.ArticleService;
-
-import java.util.List;
 
 import static site.practice.dto.ArticleSuccessCode.*;
 
@@ -42,10 +43,9 @@ public class ArticleController implements ArticleControllerDocs {
     }
 
     @GetMapping
-    public ResponseEntity<ApiResponse<GetArticlesResponseDto>> getArticles(){
-
-        final List<Article> articles = articleService.findArticles();
-        final GetArticlesResponseDto response = new GetArticlesResponseDto(articles);
+    public ResponseEntity<ApiResponse<GetArticlesResponseDto>> getArticles(@PageableDefault(size = 10) Pageable pageable){
+        final Slice<Article> articles = articleService.findArticles(pageable);
+        final GetArticlesResponseDto response = GetArticlesResponseDto.from(articles);
 
         return ResponseEntity.ok(
             ApiResponse.successWithData(

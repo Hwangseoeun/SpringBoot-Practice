@@ -2,6 +2,8 @@ package site.practice.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import site.practice.dto.CreateArticleRequestDto;
@@ -9,8 +11,6 @@ import site.practice.dto.UpdateArticleRequestDto;
 import site.practice.entity.Article;
 import site.practice.exception.ArticleNotFoundException;
 import site.practice.repository.ArticleRepository;
-
-import java.util.List;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -30,8 +30,8 @@ public class ArticleService {
         articleRepository.save(article);
     }
 
-    public List<Article> findArticles() {
-        return articleRepository.findAll();
+    public Slice<Article> findArticles(Pageable pageable) {
+        return articleRepository.findAllBy(pageable);
     }
 
     public Article findArticle(Long articleId) {
